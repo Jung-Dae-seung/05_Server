@@ -60,6 +60,69 @@
       <button type="submit">서버로 제출하기(==요청하기)</button>
     </form>
 
+    <hr>
+
+    <h1>POST 방식 요청 및 응답</h1>
+    <pre>
+      GET 방식과는 다르게
+      전달되는 값을 주소가 아닌
+      HTTP Body 에 담아서 전달하는 방식
+
+      [장점]
+      - 길이 제한 X
+      - 데이터를 숨겨서 전달(보안성 향상)
+
+      [단점]
+      - 캐싱 불가능(북마크 하면 원하는 페이지를 볼 수 없음)
+      - 서버에서 추가적인 문자 인코딩 처리 필요(tomcat 10 부터 해당 문제 해결되었음)
+    </pre>
+
+    <h3>회원가입</h3>
+
+    <form action="/signUp" method="post">
+      아이디 : <input type="text" name="inputId" required> <br>
+      비밀번호 : <input type="password" name="inputPw" required> <br>
+      비밀번호 확인 : <input type="password" required> <br>
+      이름 : <input name="inputName" required> <br>
+
+      자기소개(선택) <br>
+      <textarea name="intro" cols="50" rows="5"></textarea>
+
+      <!-- button 태그의 type = "submit" 기본값 -->
+      <button type="submit">회원 가입</button>
+    </form>
+
+	<hr>
+	
+	<h1>커피 주문하기</h1>
+	
+	<form action="/coffee" method="get">
+		주문자 : <input name="orderer">
+		<br>
+		
+		커피 : <select name="coffee">
+					<option>아메리카노</option>
+					<option>카페라떼</option>
+					<option>카푸치노</option>
+					<option>콜드브루</option>
+					<option>민트초코칩프라페</option>
+			   </select>
+		<br><br>
+
+		ICE <input type="radio" name="type" value="ice">
+		HOT <input type="radio" name="type" value="hot">
+		
+		<br><br>
+		옵션 <br>
+		샷 추가 <input type="checkbox" name="opt" value="shot">
+		<br>
+		연하게 <input type="checkbox" name="opt" value="mild">
+		
+		<br><br>
+		<button>주문하기</button>
+		
+	</form>
+
 
   </body>
 

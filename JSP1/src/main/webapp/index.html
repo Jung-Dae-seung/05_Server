@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP 기초</title>
+</head>
+<body>
+
+	<h1>EL / JSTL</h1>
+	<!-- 
+		클라이언트가 서버로 요청을 하는 방법
+		
+		1) form 제출(GET/POS)
+		2) a 태그(GET)
+		3) J] - location,href = "주소"; (GET)
+		4) JS - Ajax(GET/POST/PUT/DELETE)
+		
+	-->
+	
+	<a href="/el_jstl">EL / JSTL 사용 해보기</a>
+	
+	<hr><hr>
+	
+	<h1>회원 가입</h1>
+	
+	<form action="/signup_result" method="post">
+		<table>
+			<colgroup>
+				<col style="width: 20%;">
+				<col style="width: 80%">
+			</colgroup>
+			<tbody>
+				<tr>
+					<td>
+						아이디 : 
+					</td>
+					<td>
+						<input name="inputId" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						비밀번호 : 
+					</td>
+					<td>
+						<input name="inputPw" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						비밀번호 확인 : 
+					</td>
+					<td>
+						<input name="inputPwCh" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						이름 :
+					</td>
+					<td>
+						<input name="inputName" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						나이 : 
+					</td>
+					<td>
+						<input type="number" name="inputAge" required>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button type="submit">회원 가입</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+
+</body>
+</html>
