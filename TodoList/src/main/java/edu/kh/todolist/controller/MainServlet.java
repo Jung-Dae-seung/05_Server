@@ -1,0 +1,67 @@
+package edu.kh.todolist.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import edu.kh.todolist.model.dto.Todo;
+import edu.kh.todolist.service.TodoListService;
+import edu.kh.todolist.service.TodoListServiceImpl;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+
+/*
+ * 로그인(요청) - 아이디/비밀번호
+ * Controller : 알맞은 요청처리 매핑
+ * Service : 비밀번호 암호화에 관련된 로직처리(데이터 가공처리)
+ * DAO : 가공처리된 데이터를 DB에 전달
+ * DB : 조회 -> 결과
+ * DAO : 결과 반환
+ * Service : 결과 반환
+ * Controller : 결과 반환 -> 가입이 된 사람이다
+ * 
+ */
+
+// "/main" 요청을 매핑하여 처리하는 서블릿
+@WebServlet("/main")
+public class MainServlet extends HttpServlet{
+
+	/*
+	 * 왜 "/main" 메인페이지 요청을 처리하는 서블릿을 만들었는가?
+	 * 
+	 * - Servlet에서 추가한 데이터를
+	 *   메인페이지에서 사용 할 수 있도록 하려고...
+	 * 
+	 */
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		// 요청 처리
+		// 응답 처리
+		
+		try {
+			
+			// Service 객체 생성
+			TodoListService service = new TodoListServiceImpl();
+			
+			// 전체 할 일 모록 Service 호출해서 얻어오기
+			List<Todo> todoList = service.todoListFullView();
+			
+			// request scope 객체 값을 추가
+			req.setAttribute("todoList", todoList);
+			
+			// 메인 페이지 응답을 담당하는 jsp에 요청 위임
+			String path = "/WEB-INF/views/main.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+}
