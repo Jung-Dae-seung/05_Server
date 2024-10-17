@@ -49,7 +49,7 @@
 	</table>
 	
 	<%-- session 범위에 message가 있을 경우 --%>
-	<c:if test="${empty sessionScope.message}">
+	<c:if test="${!empty sessionScope.message}">
 		<script>
 			alert("${message}");
 			// JSP 해석 순서
@@ -58,7 +58,7 @@
 		</script>
 		
 		<%-- message를 한 번만 출력하고 제거 --%>
-		<c:remove var="message"/>
+		<c:remove var="message" scope="session" />
 		
 	</c:if>
 	

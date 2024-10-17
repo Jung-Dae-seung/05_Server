@@ -13,18 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
-/*
- * 로그인(요청) - 아이디/비밀번호
- * Controller : 알맞은 요청처리 매핑
- * Service : 비밀번호 암호화에 관련된 로직처리(데이터 가공처리)
- * DAO : 가공처리된 데이터를 DB에 전달
- * DB : 조회 -> 결과
- * DAO : 결과 반환
- * Service : 결과 반환
- * Controller : 결과 반환 -> 가입이 된 사람이다
- * 
- */
-
 // "/main" 요청을 매핑하여 처리하는 서블릿
 @WebServlet("/main")
 public class MainServlet extends HttpServlet{
